@@ -1,2 +1,407 @@
-<h1>hello</h1>
-<h2>hello</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="FineDiffusion: Scaling up Diffusion Models for Fine-grained Image Generation with 10,000 Classes">
+  <meta name="keywords" content="FineDiffusion, Diffusion Model, Diffusion Transformers">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FineDiffusion : Scaling up Diffusion Models for Fine-grained Image Generation with 10,000 Classes</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js_slide/fontawesome.all.min.js"></script>
+  <script src="./static/js_slide/bulma-carousel.min.js"></script>
+  <script src="./static/js_slide/bulma-slider.min.js"></script>
+  <script src="./static/js_slide/index.js"></script>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Vendor Stylesheets -->
+  <!--=================js==========================-->
+  <link rel="stylesheet" href="./static/css/tab_gallery.css">
+  <link rel="stylesheet" href="./static/css/juxtapose.css">
+  <link rel="stylesheet" href="./static/css/image_card_fader.css">
+  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span style="color:#5e5ed2; font-weight: bold; font-style: italic"><strong>FineDiffusion</strong></span> : Scaling up Diffusion Models for Fine-grained Image Generation with 10,000 Classes</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="./index.html">Ziying Pan</a><sup></sup>,</span>
+            <span class="author-block">
+              <a href="./index.html">Kun Wang</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="./index.html">Gang Li</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="./index.html">Feihong He</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="./index.html">Xiwang Li</a><sup></sup>,
+            </span>
+            <span class="author-block">
+              <a href="./index.html">Yongxuan Lai</a><sup></sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">School of Informatics, Xiamen University<br />
+              University of Chinese Academy of Sciences
+              <br /> 
+              Shenyang Institute of Computing Technology of Chinese Academy of Sciences
+              <br /> 
+              Institute of Software, Chinese Academy of Sciences
+              <br /> 
+              School of Computer Science and Technology, Soochow University 
+  <br />
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/xxx.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/xxx.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://finediffusion.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>  
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" >
+  <div class="container" style="margin-top:-50px;margin-bottom:-50px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <div style="text-align: center; vertical-align:middle">
+            <img src="./finediffusion_img/main_pic.png" width="1000">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--=================Abstract==========================-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            The class-conditional image generation based on diffusion models is renowned for generating high-quality and diverse images. However, most prior efforts focus on generating images for general categories, e.g., 1000 classes in ImageNet-1k. A more challenging task, large-scale fine-grained image generation, remains the boundary to explore. In this work, we present a parameter-efficient strategy, called <strong>FineDiffusion</strong>, to fine-tune large pre-trained diffusion models scaling to large-scale fine-grained image generation with 10,000 categories. FineDiffusion significantly accelerates training and reduces storage overhead by only finetuning tiered class embedder, bias terms, and normalization layers' parameters. To further improve the image generation quality of fine-grained categories, we propose a novel sampling method for fine-grained image generation, which utilizes superclass-conditioned guidance, specifically tailored for fine-grained categories, to replace the conventional classifier-free guidance sampling. Compared to full fine-tuning, FineDiffusion achieves a remarkable 1.56x training speed-up and requires storing merely 1.77% of the total model parameters, while achieving state-of-the-art FID of 9.776 on image generation of 10,000 classes. Extensive qualitative and quantitative experiments demonstrate the superiority of our method compared to other parameter-efficient fine-tuning methods.
+        </div>
+      </div>
+    </div>
+</section>
+    <!--/ Abstract. -->
+
+    <!-- style="margin-top:-120px;" -->
+<!--/ Framework. -->
+<section class="section" style="margin-top:-100px;">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="section-title has-text-centered" >
+          <h2 class="title is-3 is-centered">FineDiffusion Framework</h2>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="./finediffusion_img/framework.png" style="width:600px; margin-top:20px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p>
+          We introduce a novel parameter-efficient fine-tune method called FineDiffusion for fine-grained image generation. We first propose a hierarchical class embedder called TieredEmbedder, which models the data distribution of both superclass and subclass samples. 
+        </p>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <div class="publication-img">
+              <img id="architecture" src="./finediffusion_img/para_speed.png" style="width:600px; margin-top:20px;margin-bottom:10px;"/>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:-20px;">
+          By only finetuning proposed TieredEmbedder, bias terms, and the scaling and offset of normalization layers, our method significantly speeds up training while reducing model storage overhead.
+        </p>
+        
+    </div>
+  </div>
+</section>
+
+<!-- 512-resolution -->
+<section class="section" style="background-color: #f1f1f1; margin-top:-30px;">
+  <div class="container  style="margin-top:30px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">512 × 512 Resolution Samples</h2>
+        <h2 class="subtitle has-text-centered">Samples generated by  DiT-XL/2-512 model fine-tuned on iNaturalist 2021 mini using FineDiffusion.</h2>
+
+        <!-- Supp Long Figures -->
+        <div id="results-carousel-face" class="carousel results-carousel">
+          <div class="item item-pic_512_1">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_1.png"
+                      alt="pic_512_1."/>
+            </div>
+          </div>
+          <div class="item item-pic_512_2">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_2.png"
+                      alt="pic_512_2."/>
+            </div>
+          </div>
+          <div class="item item-pic_512_3">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_3.png"
+                      alt="pic_512_3."/>
+            </div>
+          </div>
+          <div class="item item-pic_512_4">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_4.png"
+                      alt="pic_512_4."/>
+            </div>
+          </div>
+          <div class="item item-pic_512_5">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_5.png"
+                      alt="pic_512_5."/>
+            </div>
+          </div>
+          <div class="item item-pic_512_6">
+            <div class="carousel-content">
+              <img src="finediffusion_img/pic_512_6.png"
+                      alt="pic_512_6."/>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>  
+ 
+</section>
+
+
+<!-- Fine-tuning Methods -->
+<section class="section">
+  <div class="container  style="margin-top:30px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Compare with Fine-tuning Methods</h2>
+
+        <h2 class="subtitle has-text-centered">Samples generated by  DiT-XL/2-256 model fine-tuned on iNaturalist 2021 mini.</h2>
+        <!-- Supp Long Figures -->
+        <div id="results-carousel-face" class="carousel results-carousel">
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/compare_1.png"
+                      alt="compare_1"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/compare_2.png"
+                      alt="compare_2"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/compare_3.png"
+                      alt="compare_3"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/compare_4.png"
+                      alt="compare_4"/>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>  
+ 
+</section>
+
+
+  
+
+<!-- SD -->
+<section class="section" style="margin-top:-30px">
+  <div class="container" style="margin-top:0px">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Compare with Text-to-Image Generation</h2>
+        <h2 class="subtitle has-text-centered">FineDiffusion samples are generated by DiT-XL/2-256 model fine-tuned on iNaturalist 2021 mini.</h2>
+
+        <!-- Supp Long Figures -->
+        <div id="results-carousel-face" class="carousel results-carousel">
+          <div class="item">
+            <div class="carousel-content">
+              <img src="finediffusion_img/compare_to_sd_1.png"
+                      alt="sd1."/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="finediffusion_img/compare_to_sd_2.png"
+                      alt="sd2."/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="finediffusion_img/compare_to_sd_3.png"
+                      alt="sd3."/>
+            </div>
+          
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>  
+ 
+</section>
+
+  
+<!-- VegFru -->
+<section class="section" style="margin-top:-30px;background-color: #f1f1f1;">
+  <div class="container  style="margin-top:30px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Samples on VegFru</h2>
+
+        <h2 class="subtitle has-text-centered">Samples generated by  DiT-XL/2-256 model fine-tuned on VegFru.</h2>
+        <!-- Supp Long Figures -->
+        <div id="results-carousel-face" class="carousel results-carousel">
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/vegfru_1.png"
+                      alt="vegfru_1"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/vegfru_2.png"
+                      alt="vegfru_2"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/vegfru_3.png"
+                      alt="vegfru_3"/>
+            </div>
+          </div>
+          <div class="item">
+            <div class="carousel-content">
+              <img src="./finediffusion_img/vegfru_4.png"
+                      alt="vegfru_4"/>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>  
+ 
+</section>
+
+
+    
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>...
+</code></pre>
+  </div>
+</section>
+
+
+
+</body>
+</html>
+
+
